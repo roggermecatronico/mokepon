@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>MOKEPON!</title>
+        <script src="./js/mokepon.js"></script>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <section id="seleccionar-mascota" >
+            <!--style="height: 45vh;"-->
+            <!--view height ver la altura de la seccion-->
+            <h1 id="idTitle" class="titleClass">MOKEPON! 🔥💧🌱</h1>
+            <!--section es padre de los elementos que se encuentran dentro de su bloque-->
+            <h2 class="subtitulo">Elige tu mascota:</h2>
+
+            <div class="mascotas">
+                <!--etiquetia div para amarrar etiquitas-->
+                <!--El for hipodoge es para que al selecciona el nombe fuera como si seleccciona le input radio-->
+                <label for="hipodoge" class="tarjeta-de-mokepon">
+                    <p>Hipodoge</p>
+                    <img src="./assets/hipodoge.png" alt="Hipodoge va aqui">
+                </label>
+                <!-- <input type="radio" name="mascota" id="hipodoge" /> -->
+                
+                <label for="capipepo" class="tarjeta-de-mokepon" >
+                    <p>Capipepo</p>
+                    <img src="./assets/capipepo.png" alt="Capipepo va aqui"></label>
+                <!-- <input type="radio" name="mascota" id="capipepo" /> -->
+                
+                <label for="ratigueya" class="tarjeta-de-mokepon"><p>Ratigueya</p>
+                    <img src="./assets/ratigueyaia.png" alt="Ratigueya va aqui"></label>
+                <!-- <input type="radio" name="mascota" id="ratigueya" /> -->
+
+            </div>
+
+            <div class="inputs">
+                <!--etiquetia div para amarrar etiquitas-->
+                <!--El for hipodoge es para que al selecciona el nombe fuera como si seleccciona le input radio-->
+                
+                <input type="radio" name="mascota" id="hipodoge" style="width: 250px;
+                margin: 20px;"/>
+                
+                
+                <input type="radio" name="mascota" id="capipepo" style="width: 250px;
+                margin: 20px;"/>
+                
+               
+                <input type="radio" name="mascota" id="ratigueya" style="width: 250px;
+                margin: 20px;"/>
+
+            </div>
+            
+
+            <button id="boton-mascota">Seleccionar</button>
+
+        </section>
+
+        <section id="seleccionar-mascotaenemigo" style="display: flex;">
+            <h2 id="label-enemigo">Elige la mascota del enemigo:</h2>            
+            <button id="boton-mascota-enemigo">Seleccionar</button>
+        </section>
+
+        <section id="seleccionar-ataque">
+            <h2>Elige tu ataque:</h2>
+
+            <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vidaMiMascota">3</span> vidas</p>
+            <p>Las mascota <span id="mascota-enemigo"></span> del enemigo tiene <span id="vidaMascotaEnemigo">3</span> vidas</p>
+            <!--El span es para poder modificar el contenido desde JS-->
+
+            <p><!--un elemento que es padre e hijo puede utilizar las propiedades de ambos-->
+                <!--https://css-tricks.com/snippets/css/a-guide-to-flexbox/-->
+                <button id="boton-fuego">Fuego 🔥</button>
+                <button id="boton-agua">Agua 💧</button>
+                <button id="boton-tierra">Tierra 🌱</button>
+            </p>
+        </section>
+        <section id="final"></section>
+
+        <section id="mensajes">
+            <!--<p>Tu mascota atacó con FUEGO, las mascota del enemigo atacó con TIERRA - GANASTE 🎉</p>-->
+            
+        </section>
+
+        <section id="reiniciar">
+            <button id="boton-reiniciar">Reiniciar</button>
+        </section>
+    </body>
+</html>

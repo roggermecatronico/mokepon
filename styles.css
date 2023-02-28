@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&family=Fragment+Mono&family=VT323&display=swap');
+
+body{
+    background-color: #F9F54B;
+    /* se puede pegar aqui las fuentes para que le afecte a todo el body */
+}
+
+h1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:#205E61;
+    font-size: 48px;
+    
+}
+
+/* .titleClass{
+    color: rgb(194, 222, 34);
+    width: 335px;
+    height: 51px;
+    background-color: black;
+} */
+
+/* #idTitle{
+    color: rgb(43, 226, 104);
+    background-image: url("https://static.platzi.com/media/user_upload/mokepon-a604495c-ef3e-4dbd-92cc-7d172843e48d.jpg");
+    background-attachment: fixed;
+} */
+/* https://cssreference.io/ */
+/* block visualizar toda la pantalla
+inline con cajas a lo largo de la linea */
+
+/* label{
+    width: 250px;
+    height: 51px;
+    background-color: #20f0e6;
+}
+
+input{
+    width: 35px;
+    height: 24px;
+    background-color: rgb(145, 162, 13);
+}
+
+button{
+    width: 84px;
+    height: 30px;
+    background-color: rgb(31, 240, 223);
+} */
+
+.titleClass{
+
+}
+
+.subtitulo{
+
+}
+#seleccionar-mascota{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #205E61;
+    font-family: 'Fira Mono', monospace;
+}
+
+.tarjeta-de-mokepon{
+    height: 160px;
+    width: 260px;
+    background: #3F979B;
+    padding: 10px;
+    /* box-sizing: border-box; autocompletar los espacios de padding y elemento */
+    /* margin: 5px; */
+    /* border, tamano, tipo, color */
+    border: 1px solid #8BF5FA;    
+    font-family: 'VT323', monospace;
+    font-size: x-large;
+    border-radius: 19px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.tarjeta-de-mokepon img{
+    width: 160px;
+}
+.tarjeta-de-mokepon:hover {
+    cursor: pointer;
+    /* cambiar el tipo de cursor cuando se posiciona encima de nuestro elemento  */
+}
+.inputs{
+    /* display: flex; */
+    /* padding: 25px;
+    width: 200px;
+    margin: 10PX; */
+}
+input{
+    /* display: none;  */
+    
+}
+
+.mascotas{
+    display: flex;
+     gap: 10px; /*propiedad para el espaciado automatico de flex */
+}
+#boton-mascota{
+    height: 50px;
+    width: 150px;
+    border-radius: 30px;
+    background: #205E61;
+    color: white;
+    border: 2px solid #8BF5FA;
+    margin 10px 9px 7px 3px;
+}
+
+#seleccionar-mascotaenemigo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #205E61;
+    font-family: 'Fira Mono', monospace;
+}
+#label-enemigo{
+    margin-top: 5px;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#boton-mascota-enemigo{
+    margin-top: 5px;
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    height: 50px;
+    width: 150px;
+    border-radius: 30px;
+    background: #205E61;
+    color: white;
+    border: 2px solid #8BF5FA;
+    padding: 2px;
+    box-sizing: border-box;
+    margin: 8px;
+    font-family: 'Fira Mono', monospace;
+}
+/* https://colorhunt.co/
+pagina para saber que colores pueden complementar */
