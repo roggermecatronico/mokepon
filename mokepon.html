@@ -53,37 +53,58 @@
             
 
             <button id="boton-mascota">Seleccionar</button>
+            
 
         </section>
 
-        <section id="seleccionar-mascotaenemigo" style="display: flex;">
-            <h2 id="label-enemigo">Elige la mascota del enemigo:</h2>            
-            <button id="boton-mascota-enemigo">Seleccionar</button>
-        </section>
-
-        <section id="seleccionar-ataque">
-            <h2>Elige tu ataque:</h2>
-
-            <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vidaMiMascota">3</span> vidas</p>
-            <p>Las mascota <span id="mascota-enemigo"></span> del enemigo tiene <span id="vidaMascotaEnemigo">3</span> vidas</p>
-            <!--El span es para poder modificar el contenido desde JS-->
-
-            <p><!--un elemento que es padre e hijo puede utilizar las propiedades de ambos-->
-                <!--https://css-tricks.com/snippets/css/a-guide-to-flexbox/-->
-                <button id="boton-fuego">Fuego 🔥</button>
-                <button id="boton-agua">Agua 💧</button>
-                <button id="boton-tierra">Tierra 🌱</button>
-            </p>
-        </section>
-        <section id="final"></section>
-
-        <section id="mensajes">
-            <!--<p>Tu mascota atacó con FUEGO, las mascota del enemigo atacó con TIERRA - GANASTE 🎉</p>-->
+        <section id="seleccionar-mascotaenemigo" >
+            
+            <h2 id="label-enemigo">Elige la mascota del enemigo:</h2>
+            <button id="boton-mascota-enemigo">Seleccionar</button>            
             
         </section>
 
-        <section id="reiniciar">
-            <button id="boton-reiniciar">Reiniciar</button>
+        <section id="seleccionar-ataque">
+            
+            <h1 id="idTitle" class="titleClass">MOKEPON! 🔥💧🌱</h1>
+            
+            <h2 class="subtitulo">Elige tu ataque:</h2>
+
+
+            <div><!--un elemento que es padre e hijo puede utilizar las propiedades de ambos-->
+                <!--https://css-tricks.com/snippets/css/a-guide-to-flexbox/-->
+                <button id="boton-fuego" clase ="boton-de-ataque">Fuego 🔥</button>
+                <button id="boton-agua" clase ="boton-de-ataque">Agua 💧</button>
+                <button id="boton-tierra" clase ="boton-de-ataque">Tierra 🌱</button>
+            </div>
+
+            <div>
+                <section id="mensajes">
+                    <!--<p>Tu mascota atacó con FUEGO, las mascota del enemigo atacó con TIERRA - GANASTE 🎉</p>-->
+                    
+                </section>
+
+                <section id="reiniciar">
+                    <button id="boton-reiniciar">Reiniciar</button>
+                </section>
+
+            </div>
+
+
+            <div>
+                <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vidaMiMascota">3</span> vidas</p>
+                <p>Las mascota <span id="mascota-enemigo"></span> del enemigo tiene <span id="vidaMascotaEnemigo">3</span> vidas</p>
+                <!--El span es para poder modificar el contenido desde JS-->
+            </div>   
+
+            
+
+            
         </section>
+        <section id="final"></section>
+
+        
+
+        
     </body>
 </html>

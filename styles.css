@@ -5,13 +5,52 @@ body{
     /* se puede pegar aqui las fuentes para que le afecte a todo el body */
 }
 
-h1{
+#seleccionar-mascota{
+    display: flex;/*  valor por defecto row*/
+    flex-direction: column;/*de arriba hacia abajo*/ 
+    align-items: center;
+    color: #205E61;
+    font-family: 'Fira Mono', monospace;
+}
+
+/* selector de tipo */
+h1{/*afect a mi titulo mokepon*/
     display: flex;
     flex-direction: column;
     align-items: center;
     color:#205E61;
     font-size: 48px;
     
+}
+
+.titleClass{
+
+}
+
+.subtitulo{
+
+}
+.mascotas{
+    display: flex;
+     gap: 10px; /*propiedad para el espaciado automatico de flex */
+}
+
+.tarjeta-de-mokepon{
+    height: 160px;
+    width: 260px;
+    background: #3F979B;
+    padding: 10px;
+    /* box-sizing: border-box; autocompletar los espacios de padding y elemento */
+    margin: 5px;
+    /* border, tamano, tipo, color */
+    border: 1px solid #8BF5FA;    
+    font-family: 'VT323', monospace;
+    font-size: x-large;
+    border-radius: 19px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
 /* .titleClass{
@@ -48,41 +87,14 @@ button{
     background-color: rgb(31, 240, 223);
 } */
 
-.titleClass{
 
-}
 
-.subtitulo{
 
-}
-#seleccionar-mascota{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #205E61;
-    font-family: 'Fira Mono', monospace;
-}
 
-.tarjeta-de-mokepon{
-    height: 160px;
-    width: 260px;
-    background: #3F979B;
-    padding: 10px;
-    /* box-sizing: border-box; autocompletar los espacios de padding y elemento */
-    /* margin: 5px; */
-    /* border, tamano, tipo, color */
-    border: 1px solid #8BF5FA;    
-    font-family: 'VT323', monospace;
-    font-size: x-large;
-    border-radius: 19px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-}
 
 .tarjeta-de-mokepon img{
     width: 160px;
+    border-radius: 15px;
 }
 .tarjeta-de-mokepon:hover {
     cursor: pointer;
@@ -99,55 +111,66 @@ input{
     
 }
 
-.mascotas{
-    display: flex;
-     gap: 10px; /*propiedad para el espaciado automatico de flex */
-}
-#boton-mascota{
-    height: 50px;
-    width: 150px;
-    border-radius: 30px;
-    background: #205E61;
-    color: white;
-    border: 2px solid #8BF5FA;
-    margin 10px 9px 7px 3px;
-}
-
-#seleccionar-mascotaenemigo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #205E61;
-    font-family: 'Fira Mono', monospace;
-}
-#label-enemigo{
-    margin-top: 5px;
-    margin-bottom: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#boton-mascota-enemigo{
-    margin-top: 5px;
-    margin-bottom: 4px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 button{
     height: 50px;
     width: 150px;
     border-radius: 30px;
     background: #205E61;
     color: white;
-    border: 2px solid #8BF5FA;
+    border: 4px solid #8BF5FA;
     padding: 2px;
     box-sizing: border-box;
     margin: 8px;
     font-family: 'Fira Mono', monospace;
 }
+#boton-mascota {
+    height: 50px;
+    width: 150px;
+    border-radius: 30px;
+    background: #205E61;
+    color: white;
+    border: 4px solid #8BF5FA;
+    margin 10px 9px 7px 3px;
+}
+
+#seleccionar-mascotaenemigo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #205E61;
+    font-family: 'Fira Mono', monospace;
+
+    
+}
+#label-enemigo {
+    margin-top: 5px;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#boton-mascota-enemigo {
+    margin-top: 5px;
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
 /* https://colorhunt.co/
 pagina para saber que colores pueden complementar */
+
+#seleccionar-ataque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.boton-de-ataque {
+    background-color: #9b623f;
+
+}

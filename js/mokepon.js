@@ -65,11 +65,12 @@ function seleccionarMascotaJugador() {
 function mostrarMascotaEnemigo(){
     let sectionInvisible1 = document.getElementById ("seleccionar-mascotaenemigo")
         sectionInvisible1.style.display = "block"
+        sectionInvisible1.style,display = "inline"
 }
 
 function seleccionarMascotaEnemigo() {
     //if (auxMascotaMaquina==0){
-
+        
     let spanMascotaEnemigo = document.getElementById("mascota-enemigo")
     let numeroMascota
     numeroMascota = aleatorio(1, 3)
@@ -87,6 +88,7 @@ function seleccionarMascotaEnemigo() {
 
     let sectionInvisible1 = document.getElementById ("seleccionar-mascotaenemigo")
     sectionInvisible1.style.display = "none"
+    
     let sectionInvisible4 = document.getElementById ("seleccionar-mascota")
     sectionInvisible4.style.display = "none"
 }
