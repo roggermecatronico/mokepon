@@ -17,39 +17,44 @@
             <div class="mascotas">
                 <!--etiquetia div para amarrar etiquitas-->
                 <!--El for hipodoge es para que al selecciona el nombe fuera como si seleccciona le input radio-->
-                <label for="hipodoge" class="tarjeta-de-mokepon">
-                    <p>Hipodoge</p>
-                    <img src="./assets/hipodoge.png" alt="Hipodoge va aqui">
-                </label>
-                <!-- <input type="radio" name="mascota" id="hipodoge" /> -->
-                
-                <label for="capipepo" class="tarjeta-de-mokepon" >
-                    <p>Capipepo</p>
-                    <img src="./assets/capipepo.png" alt="Capipepo va aqui"></label>
-                <!-- <input type="radio" name="mascota" id="capipepo" /> -->
-                
-                <label for="ratigueya" class="tarjeta-de-mokepon"><p>Ratigueya</p>
-                    <img src="./assets/ratigueyaia.png" alt="Ratigueya va aqui"></label>
-                <!-- <input type="radio" name="mascota" id="ratigueya" /> -->
-
-            </div>
-
-            <div class="inputs">
-                <!--etiquetia div para amarrar etiquitas-->
-                <!--El for hipodoge es para que al selecciona el nombe fuera como si seleccciona le input radio-->
-                
-                <input type="radio" name="mascota" id="hipodoge" style="width: 250px;
-                margin: 20px;"/>
-                
-                
-                <input type="radio" name="mascota" id="capipepo" style="width: 250px;
-                margin: 20px;"/>
-                
+                <div>
+                    <input type="radio" name="mascota" id="hipodoge" style="width: 250px;
+                    margin: 20px;"/>
+                    <label for="hipodoge" class="tarjeta-de-mokepon">
+                        <p>Hipodoge</p>
+                        <img src="./assets/hipodoge.png" alt="Hipodoge va aqui">
+                    </label>
+                    
+                </div>
                
-                <input type="radio" name="mascota" id="ratigueya" style="width: 250px;
-                margin: 20px;"/>
+                <!-- <input type="radio" name="mascota" id="hipodoge" /> -->
+                <div>
+                    <input type="radio" name="mascota" id="capipepo" style="width: 250px;
+                    margin: 20px;"/>
+                    <label for="capipepo" class="tarjeta-de-mokepon" >
+                        <p>Capipepo</p>
+                        <img src="./assets/capipepo.png" alt="Capipepo va aqui"></label>
+                    <!-- <input type="radio" name="mascota" id="capipepo" /> -->
+                    
+                </div>
+                
+                <div>
+                    <input type="radio" name="mascota" id="ratigueya" style="width: 250px;
+                    margin: 20px;"/>
+                    <label for="ratigueya" class="tarjeta-de-mokepon"><p>Ratigueya</p>
+                        <img src="./assets/ratigueyaia.png" alt="Ratigueya va aqui"></label>
+                    <!-- <input type="radio" name="mascota" id="ratigueya" /> -->
+                    
+                </div>
+                
 
             </div>
+
+            <!-- <div class="inputs">
+                etiquetia div para amarrar etiquitas
+                El for hipodoge es para que al selecciona el nombe fuera como si seleccciona le input radio
+                
+            </div> -->
             
 
             <button id="boton-mascota">Seleccionar</button>
@@ -60,7 +65,10 @@
         <section id="seleccionar-mascotaenemigo" >
             
             <h2 id="label-enemigo">Elige la mascota del enemigo:</h2>
-            <button id="boton-mascota-enemigo">Seleccionar</button>            
+            <div id="caja-boton-mascota-enemigo">
+                <button id="boton-mascota-enemigo">Seleccionar</button> 
+            </div>
+                       
             
         </section>
 
@@ -71,18 +79,20 @@
             <h2 class="subtitulo">Elige tu ataque:</h2>
 
 
-            <div><!--un elemento que es padre e hijo puede utilizar las propiedades de ambos-->
+            <div id="div-botones-ataques"><!--un elemento que es padre e hijo puede utilizar las propiedades de ambos-->
                 <!--https://css-tricks.com/snippets/css/a-guide-to-flexbox/-->
                 <button id="boton-fuego" clase ="boton-de-ataque">Fuego 🔥</button>
                 <button id="boton-agua" clase ="boton-de-ataque">Agua 💧</button>
                 <button id="boton-tierra" clase ="boton-de-ataque">Tierra 🌱</button>
             </div>
 
-            <div>
+            <div id="div-mensajes">
                 <section id="mensajes">
-                    <!--<p>Tu mascota atacó con FUEGO, las mascota del enemigo atacó con TIERRA - GANASTE 🎉</p>-->
-                    
+                    <!--<p>Tu mascota atacó con FUEGO, las mascota del enemigo atacó con TIERRA - GANASTE 🎉</p>-->  
+                    <p id="resultado">Good luck</p>               
                 </section>
+                
+                <!-- <section id="final"></section> -->
 
                 <section id="reiniciar">
                     <button id="boton-reiniciar">Reiniciar</button>
@@ -91,17 +101,38 @@
             </div>
 
 
-            <div>
+            <div id="ataques-ambos">
+                <div class="grid">
+                    <div>
+
+                        <p id="vidaMiMascota">3</p>
+                        <p id="mascota-jugador"></p>
+                        <div id="ataques-del-jugador"></div>
+    
+                    </div>
+    
+                    <div>
+                        <p id="vidaMascotaEnemigo">3</p>
+                        <p id="mascota-enemigo"></p>
+                        <div id="ataques-del-enemigo"></div>
+                    
+                    </div>
+
+                </div>
+                <!-- 
+                <div id="ataques-del-jugador"></div>
+                <div id="ataques-del-enemigo"></div>
+
                 <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vidaMiMascota">3</span> vidas</p>
                 <p>Las mascota <span id="mascota-enemigo"></span> del enemigo tiene <span id="vidaMascotaEnemigo">3</span> vidas</p>
-                <!--El span es para poder modificar el contenido desde JS-->
+                El span es para poder modificar el contenido desde JS -->
             </div>   
 
             
 
             
         </section>
-        <section id="final"></section>
+        
 
         
 

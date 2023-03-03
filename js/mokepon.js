@@ -129,17 +129,6 @@ function ataqueMaquinaF (){
     
 }
 
-function crearMensaje(){
-    let sectionMensajes = document.getElementById('mensajes')
-    //creteElement para crear en HTML
-    let parrafo = document.createElement('p')
-    //inner contenido interno
-    parrafo.innerHTML = ("Tu mascota ataco con " + ataqueJugador + " ,la mascota del enemigo ataco con " + ataqueMaquina+ " "+duelo)
-    //Metodo de manipulacion del DOM appendChild
-    //Nos ayuda a agarrar elementos que ya hayamos creado en js para insertarlo en HTML
-    sectionMensajes.appendChild(parrafo)
-}
-
 function evaluacion(){
 
     if (ataqueJugador == ataqueMaquina ) {
@@ -156,10 +145,43 @@ function evaluacion(){
     vida()
 }
 
+function crearMensaje(){
+    let sectionResultado = document.getElementById('resultado')
+    let divAtaquesDelJugado = document.getElementById('ataques-del-jugador')
+    let divAtaquesDelEnemigo = document.getElementById('ataques-del-enemigo')
+
+    //creteElement para crear en HTML
+    // let parrafoResultado = document.createElement('p')
+    let parrafoAtaqueJugador = document.createElement('p')
+    let parrafoAtaqueEnemigo = document.createElement('p')
+
+
+
+
+    //inner contenido interno
+    // parrafoResultado.innerHTML = ("Tu mascota ataco con " + ataqueJugador + " ,la mascota del enemigo ataco con " + ataqueMaquina+ " "+duelo)
+    sectionResultado.innerHTML = (duelo)
+    parrafoAtaqueJugador.innerHTML = (ataqueJugador)
+    parrafoAtaqueEnemigo.innerHTML = (ataqueMaquina)
+
+
+
+    
+    
+    //Metodo de manipulacion del DOM appendChild
+    //Nos ayuda a agarrar elementos que ya hayamos creado en js para insertarlo en HTML
+    // sectionResultado.appendChild(parrafoResultado)
+    divAtaquesDelJugado.appendChild(parrafoAtaqueJugador)
+    divAtaquesDelEnemigo.appendChild(parrafoAtaqueEnemigo)
+
+}
+
+
+
 function vida(){
 
-    let spanVidaMaquina = document.getElementById("vidaMiMascota")
-    let spanVidaJugador = document.getElementById("vidaMascotaEnemigo")
+    let spanVidaMaquina = document.getElementById("vidaMascotaEnemigo")
+    let spanVidaJugador = document.getElementById("vidaMiMascota")
 
     if (duelo=="GANASTE"){
         vidasMaquina = vidasMaquina-1
@@ -176,6 +198,7 @@ function vida(){
       
 
 }
+
 function revisarVidas(){
 if (vidasJugador==0){
     crearMensajeFinal("Lo siento, Perdiste")
@@ -184,15 +207,16 @@ if (vidasJugador==0){
 } 
 
 }
+
 function crearMensajeFinal(resultado){
-    let sectionFinal = document.getElementById('final')
+    let sectionResultado = document.getElementById('resultado')
     //creteElement para crear en HTML
-    let parrafo = document.createElement('p')
+    // let parrafo = document.createElement('p')
     //inner contenido interno
-    parrafo.innerHTML = resultado
+    sectionResultado.innerHTML = resultado
     //Metodo de manipulacion del DOM appendChild
     //Nos ayuda a agarrar elementos que ya hayamos creado en js para insertarlo en HTML
-    sectionFinal.appendChild(parrafo)
+    // sectionResultado.appendChild(sectionResultado)
 
     let botonAtaqueFuego = document.getElementById('boton-fuego')           //listener para el ataque que elijamos
     botonAtaqueFuego.disabled = true

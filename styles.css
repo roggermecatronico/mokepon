@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&family=Fragment+Mono&family=VT323&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 body{
-    background-color: #F9F54B;
+    background-color: #F6FFA4;
     /* se puede pegar aqui las fuentes para que le afecte a todo el body */
 }
 
@@ -107,7 +107,7 @@ button{
     margin: 10PX; */
 }
 input{
-    /* display: none;  */
+    display: none; 
     
 }
 
@@ -173,4 +173,79 @@ pagina para saber que colores pueden complementar */
 .boton-de-ataque {
     background-color: #9b623f;
 
+}
+#div-mensajes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+
+}
+#caja-boton-mascota-enemigo {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+
+}
+.subtitulo {
+    display: flex;
+    justify-content: center;
+}
+
+#div-botones-ataques { 
+    display: flex;
+    justify-content: center;
+}
+
+#ataques-ambos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#final{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 150px 150px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+#vidaMiMascota {
+    font-size: 24px;
+}
+#vidaMascotaEnemigo {
+    font-size: 24px;
+}
+
+#mascota-enemigo {
+    font-size: 20px;
+}
+#ataques-del-enemigo {
+    font-size: 16px;
+}
+#mascota-jugador {
+    font-size: 20px;
+}
+#ataque-del-jugador {
+    font-size: 16px;
+}
+
+/* Le decimos para que sea responsive desde 0 hasta cuantos pixeles necesitamos */
+@media (max-width: 500px){
+    /* dentro colocamos solo los cambios */
+    .mascotas, #div-botones-ataques{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+input:checked + label {
+    background-color: #FFA8A8;
 }
