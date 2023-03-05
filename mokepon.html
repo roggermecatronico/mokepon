@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title>MOKEPON!</title>
-        <script src="./js/mokepon.js"></script>
+        
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
@@ -14,10 +14,10 @@
             <!--section es padre de los elementos que se encuentran dentro de su bloque-->
             <h2 class="subtitulo">Elige tu mascota:</h2>
 
-            <div class="mascotas">
+            <div id="contenedor-tarjetas" class="mascotas">
                 <!--etiquetia div para amarrar etiquitas-->
                 <!--El for hipodoge es para que al selecciona el nombe fuera como si seleccciona le input radio-->
-                <div>
+                <!-- <div>
                     <input type="radio" name="mascota" id="hipodoge" style="width: 250px;
                     margin: 20px;"/>
                     <label for="hipodoge" class="tarjeta-de-mokepon">
@@ -27,14 +27,14 @@
                     
                 </div>
                
-                <!-- <input type="radio" name="mascota" id="hipodoge" /> -->
+                <input type="radio" name="mascota" id="hipodoge" />
                 <div>
                     <input type="radio" name="mascota" id="capipepo" style="width: 250px;
                     margin: 20px;"/>
                     <label for="capipepo" class="tarjeta-de-mokepon" >
                         <p>Capipepo</p>
                         <img src="./assets/capipepo.png" alt="Capipepo va aqui"></label>
-                    <!-- <input type="radio" name="mascota" id="capipepo" /> -->
+                    <input type="radio" name="mascota" id="capipepo" />
                     
                 </div>
                 
@@ -43,9 +43,9 @@
                     margin: 20px;"/>
                     <label for="ratigueya" class="tarjeta-de-mokepon"><p>Ratigueya</p>
                         <img src="./assets/ratigueyaia.png" alt="Ratigueya va aqui"></label>
-                    <!-- <input type="radio" name="mascota" id="ratigueya" /> -->
+                    <input type="radio" name="mascota" id="ratigueya" />
                     
-                </div>
+                </div> -->
                 
 
             </div>
@@ -62,7 +62,7 @@
 
         </section>
 
-        <section id="seleccionar-mascotaenemigo" >
+        <section id="seleccionar-mascota-enemigo" >
             
             <h2 id="label-enemigo">Elige la mascota del enemigo:</h2>
             <div id="caja-boton-mascota-enemigo">
@@ -136,6 +136,6 @@
 
         
 
-        
+        <script src="./js/mokepon.js"></script> 
     </body>
 </html>
