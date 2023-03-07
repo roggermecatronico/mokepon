@@ -62,9 +62,19 @@
 
         </section>
 
+        <section id = "ver-mapa">
+            <h2 class="titulo">Recorre el mapa con tu MOKEPON</h2>
+            <canvas id="mapa"></canvas>
+            <button onmouseup = "detenerMovimiento()" onmousedown = "moverDerecha()" >Derecha </button>
+            <button onmouseup = "detenerMovimiento()" onmousedown = "moverAbajo()" >Abajo </button>
+            <button onmouseup = "detenerMovimiento()" onmousedown = "moverArriba()" >Arriba </button>
+            <button onmouseup = "detenerMovimiento()" onmousedown = "moverIzquierda()" >Izquierda </button>
+
+        </section>
+
         <section id="seleccionar-mascota-enemigo" >
             
-            <h2 id="label-enemigo">Elige la mascota del enemigo:</h2>
+            <h3 id="label-enemigo">Elige la mascota del enemigo:</h3>
             <div id="caja-boton-mascota-enemigo">
                 <button id="boton-mascota-enemigo">Seleccionar</button> 
             </div>
@@ -81,9 +91,9 @@
 
             <div id="div-botones-ataques"><!--un elemento que es padre e hijo puede utilizar las propiedades de ambos-->
                 <!--https://css-tricks.com/snippets/css/a-guide-to-flexbox/-->
-                <button id="boton-fuego" clase ="boton-de-ataque">Fuego 🔥</button>
+                <!-- <button id="boton-fuego" clase ="boton-de-ataque">Fuego 🔥</button>
                 <button id="boton-agua" clase ="boton-de-ataque">Agua 💧</button>
-                <button id="boton-tierra" clase ="boton-de-ataque">Tierra 🌱</button>
+                <button id="boton-tierra" clase ="boton-de-ataque">Tierra 🌱</button> -->
             </div>
 
             <div id="div-mensajes">
@@ -105,14 +115,14 @@
                 <div class="grid">
                     <div>
 
-                        <p id="vidaMiMascota">3</p>
+                        <p id="vidaMiMascota">0</p>
                         <p id="mascota-jugador"></p>
                         <div id="ataques-del-jugador"></div>
     
                     </div>
     
                     <div>
-                        <p id="vidaMascotaEnemigo">3</p>
+                        <p id="vidaMascotaEnemigo">0</p>
                         <p id="mascota-enemigo"></p>
                         <div id="ataques-del-enemigo"></div>
                     

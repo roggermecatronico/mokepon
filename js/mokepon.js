@@ -1,4 +1,4 @@
-const sectionInvisible2 = document.getElementById ("seleccionar-ataque")
+const sectionSeleccionarAtaque = document.getElementById ("seleccionar-ataque")
 const sectionInvisible1 = document.getElementById ("seleccionar-mascota-enemigo")
 const sectionInvisible3 = document.getElementById ("reiniciar")
 const botonMascotaJugador = document.getElementById('boton-mascota')
@@ -56,12 +56,32 @@ let ataqueJugadorBotones= []
 let ataqueMaquinaEnfrentar = []
 let ataqueMaquinaPalabra = []
 
+let ataquesJugador
+
+let ganoJugador =0
+let ganoMaquina =0
+
+const sectionVerMapa = document.getElementById("ver-mapa")
+const mapa = document.getElementById("mapa")
+let lienzo = mapa.getContext("2d")//obtener el lienzo para dibujar
+
+let intervalo
+
+
 class Mokepon {
     constructor(nombre, foto, vida){
         this.nombre = nombre
         this.foto = foto
         this.vida = vida
         this.ataques = []
+        this.x = 20
+        this.y = 30
+        this.ancho =60
+        this.alto =60
+        this.mapaFoto = new Image()
+        this.mapaFoto.src = foto
+        this. velocidadX =0
+        this.velocidadY =0
     }
 }
 
@@ -104,8 +124,9 @@ mokepones.push(hipodoge, capipepo, ratigueya)
 function iniciarJuego() {//esta funcion se ejecuta cuando se acaba de cargar el html
          
     sectionInvisible1.style.display = "none"
-    sectionInvisible2.style.display = "none"
+    sectionSeleccionarAtaque.style.display = "none"
     sectionInvisible3.style.display = "none"
+    sectionVerMapa.style.display = "none"
 
     mokepones.forEach((mokepon) => {
         //templates literarios, ` comilla invertida
@@ -133,22 +154,32 @@ function iniciarJuego() {//esta funcion se ejecuta cuando se acaba de cargar el 
 
 }
 
-function seleccionarMascotaJugador() {
+function seleccionarMascotaJugador() {//funcion para que el jugador selecciones su mascota
     //alert('SELECCIONASTE TU MASCOTA')
     //let auxMascotaMaquina
     if (inputHipodoge.checked == true) {
         spanMascotaJugador.innerHTML = inputHipodoge.id
         mascotaJugador = inputHipodoge.id
         //auxMascotaMaquina = 0
+        inputHipodoge.disabled = true
+        inputCapipepo.disabled = true
+        inputRatigueya.disabled = true
+
         mostrarMascotaEnemigo()
     } else if (inputCapipepo.checked == true) {
         spanMascotaJugador.innerHTML = inputCapipepo.id
         mascotaJugador = inputCapipepo.id
         //auxMascotaMaquina = 0
+        inputHipodoge.disabled = true
+        inputCapipepo.disabled = true
+        inputRatigueya.disabled = true
         mostrarMascotaEnemigo()
     } else if (inputRatigueya.checked == true) {
         spanMascotaJugador.innerHTML = inputRatigueya.id
         mascotaJugador = inputRatigueya.id
+        inputHipodoge.disabled = true
+        inputCapipepo.disabled = true
+        inputRatigueya.disabled = true
         //auxMascotaMaquina = 0
         mostrarMascotaEnemigo()
     } else {
@@ -161,14 +192,14 @@ function seleccionarMascotaJugador() {
 }
 
 function extraerAtaques(mascotaJugador){
-    let ataquesJugador
+    
     for (let i = 0; i < mokepones.length; i++) {
         if (mokepones[i].nombre === mascotaJugador){
             ataquesJugador = mokepones[i].ataques
         }
         
     }
-    console.log(ataquesJugador)
+    // console.log(ataquesJugador)
     mostrarAtaques(ataquesJugador)
 }
 
@@ -186,7 +217,7 @@ function mostrarAtaques(ataquesJugador){
     //si hay elementos que se repites seleecionarlos con clase no con id
     botones = document.querySelectorAll('.BAtaque')
    
-    console.log(botones)
+    // console.log(botones)
 
     secuenciaAtaque(botones)
 
@@ -201,19 +232,25 @@ function secuenciaAtaque(botones){
             // console.log(e)
             if (e.target.textContent == '🔥'){
                 ataqueJugadorBotones.push('FUEGO')
-                console.log(ataqueJugadorBotones)
+                // console.log(ataqueJugadorBotones)
+                boton.disabled = true //desactivar los botones luego de pulsar
                 boton.style.background = '#112f58'
             }else if(e.target.textContent == '💧'){
                 ataqueJugadorBotones.push('AGUA')
-                console.log(ataqueJugadorBotones)
+                boton.disabled = true
+                // console.log(ataqueJugadorBotones)
                 boton.style.background = '#112f58'
             }else if(e.target.textContent == '🌱'){
                 ataqueJugadorBotones.push('TIERRA')
-                console.log(ataqueJugadorBotones)
+                boton.disabled = true
+                // console.log(ataqueJugadorBotones)
                 boton.style.background = '#112f58'
             }
+            if (ataqueJugadorBotones.length === mascotaEnemigo.ataques.length){
+                ataqueMaquinaF ()
+            }
         })
-        evaluacion()  
+        
     })
     
 
@@ -239,10 +276,20 @@ function seleccionarMascotaEnemigo() {
     //     spanMascotaEnemigo.innerHTML = "Ratigueya"
     // }
     //}    
-    sectionInvisible2.style.display = "block"   
+    // sectionSeleccionarAtaque.style.display = "block"   
     sectionInvisible1.style.display = "none"    
     sectionInvisible4.style.display = "none"
-    ataqueMaquinaF ()
+
+    sectionVerMapa.style.display = 'flex'
+    // let imagenDeCapipepo = new Image()
+    // imagenDeCapipepo.src = capipepo.foto
+    // lienzo.fillRect(15,45,12,69)
+    intervalo = setInterval(pintarPersonaje, 50 )
+
+    
+
+    
+    
 }
 
 function aleatorio(min, max) {
@@ -264,7 +311,7 @@ function aleatorio(min, max) {
 //     ataqueMaquinaF()
 // }
 
-function ataqueMaquinaF (){    
+function ataqueMaquinaF (){    //seleccion aleatoria de los ataques
     
     let ataque0
     let ataque1
@@ -298,18 +345,9 @@ function ataqueMaquinaF (){
 
         
     }
+    transformarEmojiPalabra()
     
-    ataqueMaquinaEnfrentar.forEach((elemento) => {
-        if (elemento.nombre == '🔥'){
-            ataqueMaquinaPalabra.push('FUEGO')
-            console.log(ataqueJugadorBotones)
-        }else if(elemento.nombre == '💧'){
-            ataqueMaquinaPalabra.push('AGUA')
-        }else if(elemento.nombre == '🌱'){
-            ataqueMaquinaPalabra.push('TIERRA')
-        
-        }
-    })
+   
 
     // if (numeroAleatorio == 0 && ataque0!=1) {
     //     mascotaEnemigo.ataque[0]
@@ -323,17 +361,41 @@ function ataqueMaquinaF (){
      
 }
 
+function transformarEmojiPalabra(){//funcion para transformar los ataques de mokepon para poder comparar
+    ataqueMaquinaEnfrentar.forEach((elemento) => {
+        if (elemento.nombre == '🔥'){
+            ataqueMaquinaPalabra.push('FUEGO')
+            // console.log(ataqueJugadorBotones)
+        }else if(elemento.nombre == '💧'){
+            ataqueMaquinaPalabra.push('AGUA')
+        }else if(elemento.nombre == '🌱'){
+            ataqueMaquinaPalabra.push('TIERRA')        
+        }
+
+    })
+    evaluacion()
+
+}
+
 function evaluacion(){
-    if (ataqueJugador == ataqueMaquina ) {
-        duelo = "EMPATE"
-    } else if (ataqueJugador == "FUEGO" && ataqueMaquina == "TIERRA") {
-        duelo = "GANASTE"
-    } else if (ataqueJugador == "AGUA" && ataqueMaquina == "FUEGO") {
-        duelo = "GANASTE"
-    } else if (ataqueJugador == "TIERRA" && ataqueMaquina == "AGUA") {
-        duelo = "GANASTE"
-    } else {
-        duelo = "PERDISTE"
+
+    for(let i =0 ; i<ataqueJugadorBotones.length;i++){
+        if (ataqueJugadorBotones[i] == ataqueMaquinaPalabra[i]) {
+            duelo = "EMPATE"
+            // console.log(duelo)
+        } else if (ataqueJugadorBotones[i] == "FUEGO" && ataqueMaquinaPalabra[i] == "TIERRA") {
+            duelo = "GANASTE"
+            ganoJugador += 1 
+        } else if (ataqueJugadorBotones[i] == "AGUA" && ataqueMaquinaPalabra[i] == "FUEGO") {
+            duelo = "GANASTE"
+            ganoJugador += 1 
+        } else if (ataqueJugadorBotones[i] == "TIERRA" && ataqueMaquinaPalabra[i] == "AGUA") {
+            duelo = "GANASTE"
+            ganoJugador += 1 
+        } else {
+            duelo = "PERDISTE"
+            ganoMaquina += 1
+        }
     }
     vida()
 }
@@ -341,39 +403,54 @@ function evaluacion(){
 function crearMensaje(){
     //creteElement para crear en HTML
     // let parrafoResultado = document.createElement('p')
-    let parrafoAtaqueJugador = document.createElement('p')
-    let parrafoAtaqueEnemigo = document.createElement('p')
+    
     //inner contenido interno
     // parrafoResultado.innerHTML = ("Tu mascota ataco con " + ataqueJugador + " ,la mascota del enemigo ataco con " + ataqueMaquina+ " "+duelo)
     sectionResultado.innerHTML = (duelo)
-    parrafoAtaqueJugador.innerHTML = (ataqueJugador)
-    parrafoAtaqueEnemigo.innerHTML = (ataqueMaquina)
+
+    for(let i =0 ; i<ataqueJugadorBotones.length;i++){
+    let parrafoAtaqueJugador = document.createElement('p')
+    let parrafoAtaqueEnemigo = document.createElement('p')
+    parrafoAtaqueJugador.innerHTML = (ataqueJugadorBotones[i])
+    parrafoAtaqueEnemigo.innerHTML = (ataqueMaquinaPalabra[i])
     //Metodo de manipulacion del DOM appendChild
     //Nos ayuda a agarrar elementos que ya hayamos creado en js para insertarlo en HTML
     // sectionResultado.appendChild(parrafoResultado)
     divAtaquesDelJugado.appendChild(parrafoAtaqueJugador)
     divAtaquesDelEnemigo.appendChild(parrafoAtaqueEnemigo)
+    }
 }
 
 
 
 function vida(){
-    if (duelo=="GANASTE"){
-        vidasMaquina = vidasMaquina-1        
-    }else if (duelo=="PERDISTE"){
-        vidasJugador = vidasJugador-1
+
+    if (ganoJugador == ganoMaquina) {
+        duelo = "EMPATE"
+    } else if (ganoJugador > ganoMaquina ) {
+        duelo = "GANASTE"
+    } else if (ganoJugador < ganoMaquina) {
+        duelo = "PERDISTE"
     }
-    spanVidaMaquina.innerHTML = vidasMaquina
-    spanVidaJugador.innerHTML = vidasJugador
+    
+    // if (duelo=="GANASTE"){
+    //     vidasMaquina = vidasMaquina-1        
+    // }else if (duelo=="PERDISTE"){
+    //     vidasJugador = vidasJugador-1
+    // }
+    spanVidaMaquina.innerHTML = ganoMaquina
+    spanVidaJugador.innerHTML = ganoJugador
     crearMensaje()
-    revisarVidas()
+    revisarVidas(duelo)
 }
 
 function revisarVidas(){
-    if (vidasJugador==0){
-        crearMensajeFinal("Lo siento, Perdiste")
-    } else if (vidasMaquina==0){//
+    if (duelo == "EMPATE"){
+        crearMensajeFinal("Empate")
+    } else if (duelo == "GANASTE"){//
         crearMensajeFinal("🥳 Felicitaciones Ganaste")
+    } else if (duelo = "PERDISTE"){//
+        crearMensajeFinal("sorry perdiste")
     } 
 }
 
@@ -386,15 +463,57 @@ function crearMensajeFinal(resultado){
     //Nos ayuda a agarrar elementos que ya hayamos creado en js para insertarlo en HTML
     // sectionResultado.appendChild(sectionResultado)
     //listener para el ataque que elijamos
-    botonAtaqueFuego.disabled = true    
-    botonAtaqueAgua.disabled = true    
-    botonAtaqueTierra.disabled = true    
+    // botonAtaqueFuego.disabled = true    //desactivar el boton
+    // botonAtaqueAgua.disabled = true    
+    // botonAtaqueTierra.disabled = true    
     sectionInvisible3.style.display = "block"
 }
 
 function reiniciarJuego(){
     location.reload()
     //recargar la ruta de location, la paguina
+}
+
+function pintarPersonaje(){
+
+    capipepo.x = capipepo.x + capipepo.velocidadX
+    capipepo.y = capipepo.y + capipepo.velocidadY
+
+    lienzo.clearRect(0,0,mapa.width, mapa.height)
+    lienzo.drawImage(
+        capipepo.mapaFoto,
+        capipepo.x,
+        capipepo.y,
+        capipepo.ancho,
+        capipepo.alto
+
+    )
+    
+}
+
+function moverDerecha(){
+    capipepo.velocidadX = 5
+
+}
+
+function moverAbajo(){
+    capipepo.velocidadY = 5
+
+}
+function moverIzquierda(){
+    capipepo.velocidadX = -5
+
+}
+
+function moverArriba(){
+    capipepo.velocidadY = -5
+
+}
+
+function detenerMovimiento(){
+    capipepo.velocidadX = 0
+    capipepo.velocidadY = 0
+
 }
 
 window.addEventListener('load', iniciarJuego)//instrucion para llamar a la clase iniciar juego cuando ya se termino de cargar el HTML

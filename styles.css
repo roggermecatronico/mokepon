@@ -160,6 +160,19 @@ button{
 }
 
 
+#ver-mapa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#mapa{
+    border: 3px solid black;
+}
+
+
 /* https://colorhunt.co/
 pagina para saber que colores pueden complementar */
 
@@ -171,7 +184,7 @@ pagina para saber que colores pueden complementar */
 }
 
 .boton-de-ataque {
-    background-color: #9b623f;
+    background-color: #205E61;
 
 }
 #div-mensajes {
